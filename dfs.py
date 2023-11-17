@@ -1,7 +1,20 @@
-def dfs(inital,goal):
+#DFS
+graph={ 'A':['B','C','D'],
+        'B':['D'],
+        'C':['D','L'],
+        'D':['L'],
+        'E':['A','B','F'],
+        'F':['L'],
+        'L':['M'],
+        'M':[]
+}
+initial=input("Enter the initial state: ")
+goal=input("Enter the goal state ")
+
+def DFS(initial,goal):
     frontier=[]
     explored=[]
-    frontier.append(inital)
+    frontier.append(initial)
     while frontier:
         node=frontier.pop(0)
         explored.append(node)
@@ -12,6 +25,5 @@ def dfs(inital,goal):
             if child not in frontier and child not in explored:
                 frontier.append(child)
                 frontier.reverse()
-
-ans=dfs(initial,goal)
-print("The DFS visited path is :",ans)
+ans=DFS(initial,goal)
+print("The Depth first traversal is: ",ans)
